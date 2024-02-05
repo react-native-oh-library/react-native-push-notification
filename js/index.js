@@ -10,7 +10,7 @@
 
 'use strict';
 
-import {NativeEventEmitter, NativeModules} from 'react-native';
+import {NativeEventEmitter, NativeModules, TurboModuleRegistry} from 'react-native';
 import invariant from 'invariant';
 import type {
   NotificationAlert,
@@ -18,7 +18,7 @@ import type {
   NotificationCategory,
   NotificationAction,
 } from './types';
-const {RNCPushNotificationIOS} = NativeModules;
+const RNCPushNotificationIOS = TurboModuleRegistry?TurboModuleRegistry.get<Spec>('PushNotificationTurboModule'):NativeModules.RNCPushNotificationIOS;
 
 const PushNotificationEmitter = new NativeEventEmitter(RNCPushNotificationIOS);
 

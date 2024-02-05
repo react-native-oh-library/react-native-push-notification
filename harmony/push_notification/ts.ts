@@ -1,0 +1,1 @@
+export { PushNotificationPackage } from "./src/main/ets/PushNotificationPackage";
