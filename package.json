@@ -1,5 +1,5 @@
 {
-  "name": "@react-native-community/push-notification-ios",
+  "name": "@react-native-oh-tpl/push-notification-ios",
   "version": "1.11.0-0.1.0",
   "description": "React Native Push Notification API for iOS",
   "main": "js/index.js",
