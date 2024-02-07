@@ -1,6 +1,6 @@
-import {RNPackage, TurboModulesFactory} from 'rnoh/ts';
-import type {TurboModule, TurboModuleContext} from 'rnoh/ts';
-import {PushNotificationTurboModule} from './PushNotificationTurboModule';
+import { RNPackage, TurboModulesFactory } from 'rnoh/ts';
+import type { TurboModule, TurboModuleContext } from 'rnoh/ts';
+import { PushNotificationTurboModule } from './PushNotificationTurboModule';
 
 class PushNotificationTurboModulesFactory extends TurboModulesFactory {
   createTurboModule(name: string): TurboModule | null {
