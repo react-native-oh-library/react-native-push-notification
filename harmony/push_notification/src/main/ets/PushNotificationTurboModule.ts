@@ -1,9 +1,35 @@
+/**
+ * MIT License
+ *
+ * Copyright (C) 2024 Huawei Device Co., Ltd.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 import { TurboModule } from 'rnoh/ts';
 import notificationManager from '@ohos.notificationManager';
-import { NotificationRequest } from './NotificationRequest'
-import { ConvertUtils } from './ConvertUtils'
+import { NotificationRequest } from './NotificationRequest';
+import { ConvertUtils } from './ConvertUtils';
+import hilog from '@ohos.hilog';
 
 export class PushNotificationTurboModule extends TurboModule {
+  private TAG: string = "PushNotificationTurboModule";
   utils: ConvertUtils = new ConvertUtils();
 
   addNotificationRequest(request: NotificationRequest) {
@@ -11,13 +37,13 @@ export class PushNotificationTurboModule extends TurboModule {
       if (data) {
         notificationManager.publish(data, (err) => {
           if (err) {
-            console.error(`publish failed, code is ${err.code}, message is ${err.message}`);
+            hilog.info(0x0000, this.TAG, `publish failed, code is ${err.code}, message is ${err.message}`);
           } else {
-            console.info("publish success");
+            hilog.info(0x0000, this.TAG, "publish success");
           }
         });
       } else {
-        console.error("publish failed");
+        hilog.info(0x0000, this.TAG, "publish failed");
       }
     })
   }
@@ -29,9 +55,9 @@ export class PushNotificationTurboModule extends TurboModule {
 
       notificationManager.cancel(id, (err) => {
         if (err) {
-          console.error(`cancel failed, code is ${err.code}, message is ${err.message}`);
+          hilog.info(0x0000, this.TAG, `cancel failed, code is ${err.code}, message is ${err.message}`);
         } else {
-          console.info("cancel success");
+          hilog.info(0x0000, this.TAG, "cancel success");
         }
       })
     }
@@ -40,9 +66,9 @@ export class PushNotificationTurboModule extends TurboModule {
   removeAllDeliveredNotifications() {
     notificationManager.cancelAll((err) => {
       if (err) {
-        console.error(`cancelAll failed, code is ${err.code}, message is ${err.message}`);
+        hilog.info(0x0000, this.TAG, `cancelAll failed, code is ${err.code}, message is ${err.message}`);
       } else {
-        console.info("cancelAll success");
+        hilog.info(0x0000, this.TAG, "cancelAll success");
       }
     });
   }
@@ -50,9 +76,9 @@ export class PushNotificationTurboModule extends TurboModule {
   setApplicationIconBadgeNumber(badgeNumber: number) {
     notificationManager.setBadgeNumber(badgeNumber, (err) => {
       if (err) {
-        console.error(`setBadge fail: ${JSON.stringify(err)}`);
+        hilog.info(0x0000, this.TAG, `setBadge fail: ${JSON.stringify(err)}`);
       } else {
-        console.info("setBadge success");
+        hilog.info(0x0000, this.TAG, "setBadge success");
       }
     })
   }
