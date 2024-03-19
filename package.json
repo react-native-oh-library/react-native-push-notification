@@ -50,7 +50,8 @@
   },
   "dependencies": {
     "invariant": "^2.2.4",
-    "react-native-push-notification": "^8.1.1"
+    "react-native-push-notification": "^8.1.1",
+    "@react-native-community/push-notification-ios": "^1.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -68,6 +69,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/react-native-community/push-notification-ios.git"
+  },
+  "harmony": {
+    "alias": "@react-native-community/push-notification-ios"
   },
   "codegenConfig": {
     "name": "RNPushNotificationSpec",
