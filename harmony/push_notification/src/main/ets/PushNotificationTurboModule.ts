@@ -26,7 +26,7 @@ import { TurboModule } from 'rnoh/ts';
 import notificationManager from '@ohos.notificationManager';
 import { NotificationRequest } from './NotificationRequest';
 import { ConvertUtils } from './ConvertUtils';
-import hilog from '@ohos.hilog';
+import Logger from './Logger';
 
 export class PushNotificationTurboModule extends TurboModule {
   private TAG: string = "PushNotificationTurboModule";
@@ -37,13 +37,13 @@ export class PushNotificationTurboModule extends TurboModule {
       if (data) {
         notificationManager.publish(data, (err) => {
           if (err) {
-            hilog.info(0x0000, this.TAG, `publish failed, code is ${err.code}, message is ${err.message}`);
+            Logger.info(this.TAG, `publish failed, code is ${err.code}, message is ${err.message}`);
           } else {
-            hilog.info(0x0000, this.TAG, "publish success");
+            Logger.info(this.TAG, "publish success");
           }
         });
       } else {
-        hilog.info(0x0000, this.TAG, "publish failed");
+        Logger.info(this.TAG, "publish failed");
       }
     })
   }
@@ -55,9 +55,9 @@ export class PushNotificationTurboModule extends TurboModule {
 
       notificationManager.cancel(id, (err) => {
         if (err) {
-          hilog.info(0x0000, this.TAG, `cancel failed, code is ${err.code}, message is ${err.message}`);
+          Logger.info(this.TAG, `cancel failed, code is ${err.code}, message is ${err.message}`);
         } else {
-          hilog.info(0x0000, this.TAG, "cancel success");
+          Logger.info(this.TAG, "cancel success");
         }
       })
     }
@@ -66,9 +66,9 @@ export class PushNotificationTurboModule extends TurboModule {
   removeAllDeliveredNotifications() {
     notificationManager.cancelAll((err) => {
       if (err) {
-        hilog.info(0x0000, this.TAG, `cancelAll failed, code is ${err.code}, message is ${err.message}`);
+        Logger.info(this.TAG, `cancelAll failed, code is ${err.code}, message is ${err.message}`);
       } else {
-        hilog.info(0x0000, this.TAG, "cancelAll success");
+        Logger.info(this.TAG, "cancelAll success");
       }
     });
   }
@@ -76,9 +76,9 @@ export class PushNotificationTurboModule extends TurboModule {
   setApplicationIconBadgeNumber(badgeNumber: number) {
     notificationManager.setBadgeNumber(badgeNumber, (err) => {
       if (err) {
-        hilog.info(0x0000, this.TAG, `setBadge fail: ${JSON.stringify(err)}`);
+        Logger.info(this.TAG, `setBadge fail: ${JSON.stringify(err)}`);
       } else {
-        hilog.info(0x0000, this.TAG, "setBadge success");
+        Logger.info(this.TAG, "setBadge success");
       }
     })
   }
