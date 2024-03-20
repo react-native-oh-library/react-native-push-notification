@@ -48,8 +48,6 @@ export class ConvertUtils {
     [key: string]: any;
   }
 
-  private beijingOffset = 8 * 60 * 60 * 1000;
-
   constructor() {
     this.notificationRequest = {
       content: undefined
@@ -91,7 +89,7 @@ export class ConvertUtils {
 
     if (!this.isNullOrUndefined(request.fireDate)) {
       const date = new Date(request.fireDate);
-      this.deliverTime = date.getTime() + this.beijingOffset;
+      this.deliverTime = date.getTime();
       this.notificationRequest = { ...this.notificationRequest, deliveryTime: this.deliverTime };
     }
 
