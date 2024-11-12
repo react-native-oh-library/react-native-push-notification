@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { TurboModule } from 'rnoh/ts';
+import { TurboModule } from '@rnoh/react-native-openharmony/ts';
 import notificationManager from '@ohos.notificationManager';
 import { NotificationRequest } from './NotificationRequest';
 import { ConvertUtils } from './ConvertUtils';
