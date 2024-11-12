@@ -2,7 +2,7 @@
   license: 'ISC',
   types: '',
   devDependencies: {
-    rnoh: 'file:../rnoh',
+   "@rnoh/react-native-openharmony":"file:../react_native_openharmony"
   },
   name: 'rnoh-push-notification',
   description: '',
@@ -10,6 +10,6 @@
   type: 'module',
   version: '1.0.0',
   dependencies: {
-    rnoh: 'file:../rnoh',
+    "@rnoh/react-native-openharmony":"file:../react_native_openharmony"
   },
 }
