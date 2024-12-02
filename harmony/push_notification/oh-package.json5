@@ -4,7 +4,7 @@
   devDependencies: {
    "@rnoh/react-native-openharmony":"file:../react_native_openharmony"
   },
-  name: 'rnoh-push-notification',
+  name: '@react-native-oh-tpl/push-notification-ios',
   description: '',
   main: 'index.ets',
   type: 'module',
