@@ -8,7 +8,7 @@
   description: '',
   main: 'index.ets',
   type: 'module',
-  version: '1.11.0-0.1.2',
+  version: '1.11.0-0.1.3',
   dependencies: {
     "@rnoh/react-native-openharmony":"file:../react_native_openharmony"
   },
